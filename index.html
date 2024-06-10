@@ -99,34 +99,37 @@
 <blockquote>
 <p>hexo: 7.2.0<br>hexo-cli: 4.3.2<br>node: 20.8.0</p>
 </blockquote>
-<h1 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h1><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>先保证安装了node。以下的命令都是在 git bash 中执行的。</p>
+<h1 id="1-写作"><a href="#1-写作" class="headerlink" title="1 写作"></a>1 写作</h1><h2 id="1-1-创建项目"><a href="#1-1-创建项目" class="headerlink" title="1.1 创建项目"></a>1.1 创建项目</h2><p>先保证安装了node。以下的命令都是在 git bash 中执行的。</p>
 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">全局安装hexo-cli</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建一个项目</span></span><br><span class="line">hexo init myBlog</span><br><span class="line">cd myBlog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
-<h2 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;title&gt;</span><br><span class="line"># 例如</span><br><span class="line">hexo new &#x27;文章标题&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-新增"><a href="#1-2-新增" class="headerlink" title="1.2 新增"></a>1.2 新增</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;title&gt;</span><br><span class="line"># 例如</span><br><span class="line">hexo new &#x27;文章标题&#x27;</span><br></pre></td></tr></table></figure>
 
-<h2 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h2><p>标签都是同级的。<br>分类可以自动生成子分类，例如这样的设置：</p>
+<h2 id="1-3分类和标签"><a href="#1-3分类和标签" class="headerlink" title="1.3分类和标签"></a>1.3分类和标签</h2><p>标签都是同级的。<br>分类可以自动生成子分类，例如这样的设置：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line"><span class="bullet">-</span> 分类1</span><br><span class="line"><span class="section">- 分类1子分类1</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
 <p>会自动为<code>分类1</code>生成一个子分类，名称是<code>分类1子分类1</code></p>
-<h2 id="生成和启动"><a href="#生成和启动" class="headerlink" title="生成和启动"></a>生成和启动</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line"># hexo generate ,生成静态文件，简写为：</span><br><span class="line">hexo g</span><br><span class="line"># 启动本地，可加端口 hexo server -p 4001,简写为：</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<h2 id="1-4-生成和本地启动"><a href="#1-4-生成和本地启动" class="headerlink" title="1.4 生成和本地启动"></a>1.4 生成和本地启动</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line"># hexo generate ,生成静态文件，简写为：</span><br><span class="line">hexo g</span><br><span class="line"># 启动本地，可加端口 hexo server -p 4001,简写为：</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>1、直接删除<code>_posts</code>目录下的md文件。<br>2、如果用了git 部署(运行过<code>hexo d</code>命令)，删除.deploy_git文件夹。<br>3、执行<code>hexo clean</code>后，再执行<code>hexo g</code>。  </p>
-<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>创建github账号，配置ssh，创建一个仓库。<br>新建和配置一下<code>.gitignore</code>文件,例如排除文件夹：</p>
+<h2 id="1-5-删除"><a href="#1-5-删除" class="headerlink" title="1.5 删除"></a>1.5 删除</h2><p>1、直接删除<code>_posts</code>目录下的md文件。<br>2、如果用了git 部署(运行过<code>hexo d</code>命令)，删除.deploy_git文件夹。<br>3、执行<code>hexo clean</code>后，再执行<code>hexo g</code>。  </p>
+<h1 id="二-部署"><a href="#二-部署" class="headerlink" title="二 部署"></a>二 部署</h1><h2 id="2-1-部署到github"><a href="#2-1-部署到github" class="headerlink" title="2.1 部署到github"></a>2.1 部署到github</h2><p>创建github账号，配置ssh，创建一个仓库。<br>仓库名最好与用户名相同，否则github会给你生成 <code>用户名.github.io/仓库名</code>这样较长的、不友好的url。</p>
+<h3 id="2-1-1-推送代码"><a href="#2-1-1-推送代码" class="headerlink" title="2.1.1 推送代码"></a>2.1.1 推送代码</h3><p>(这一步可以忽略，我以为需要推送代码才能部署，就习惯性地推送了)<br>新建和配置一下<code>.gitignore</code>文件,例如排除文件夹：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 忽略node_modules目录</span><br><span class="line">node_modules/</span><br></pre></td></tr></table></figure>
-
 <p>然后按照github提示：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br></pre></td></tr></table></figure>
 <p>最后在ide里commit、push。</p>
-<p>安装插件，否则会报错<code>ERROR Deployer not found: git</code>:</p>
+<h2 id="2-1-2-部署"><a href="#2-1-2-部署" class="headerlink" title="2.1.2 部署"></a>2.1.2 部署</h2><p>编辑_config.yml的<code>deploy</code>,如下:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:abcdef/abcdef.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<p>repo也就是对应仓库地址</p>
+<p>先安装插件，否则会报错<code>ERROR Deployer not found: git</code>:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy , 简写成</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://tobeyondblog.github.io/">https://tobeyondBlog.github.io</a></p>
+<p>然后执行 <code>hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</code> , 简写成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>第一次部署，如果马上访问页面、页面可能是没有样式的，因为css文件和js文件可能会过一会才部署好。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/06/09/hexo/hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="clx95r4ct00008gstgtiugeyd" data-title="hexo基本操作" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2024/06/09/hexo/hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="clx96bd38000000st6lgw6qe4" data-title="hexo基本操作" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
